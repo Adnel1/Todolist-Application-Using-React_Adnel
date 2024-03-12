@@ -1,12 +1,53 @@
+/* ------------ youtube.com/CodeExplained ------------ */
+body {
+    padding: 0;
+    margin: 0;
+    background-color: rgba(0,0,0,0.1);
+}
 
-/* 
+/* ------------ header ------------ */
+.header {
+    height: 200px;
+    background-image: url(https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?t=st=1710113109~exp=1710116709~hmac=7550d331049586d4fa71be864471409e256c31d3dbfc2c4047427d031bc3135c&w=740);
+    border-radius: 15px 15px 0 0;
+    position: relative;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+.clear {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    right:20px;
+    top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-*/
+.clear:hover {
+    background-color: red;
+}
+
+/* ------------ add item ------------ */
+.add-to-do {
+    background-color: #dee2e6;
+}
+
+input {
+    border: solid 1px #ccc;
+    padding: 10px;
+    width: 100%;
+}
+
+/* ------------ content ------------ */
+.content {
+    background-color: #FFF;
+    overflow: auto;
+}
+
+.garbage {
+    cursor: pointer;
+}
+
+.garbage:hover {
+    fill: red;
+}
