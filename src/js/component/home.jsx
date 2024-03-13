@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
+	const storedTodos = JSON.parse(localStorage.getItem("todos"));
+
 	const [ inputValue, setImputValue ] = useState("");
-	const [ todos, setTodos ] = useState([]);
+	const [ todos, setTodos ] = useState(storedTodos);
+
+	useEffect(() => {
+		localStorage.setItem("todos", JSON.stringify(todos));
+	}, [todos]);
 
 	return (
 		<div className="container p-5">
 			<div className="col-6 mx-auto">
 				<div className="header">
-					<div className="clear text-white">
+					<div onClick={() => setTodos([])} className="clear text-white">
 						CLEAR
 					</div>
 				</div>
 				<div className="p-3 add-to-do">
-					<h1>My Todos</h1>
 					<input type="text" 
 					onChange={(element) => setImputValue(element.target.value)} 
 					value={inputValue} 
@@ -29,12 +34,12 @@ const Home = () => {
 					}} 
 					placeholder="What do you need to do?"></input>
 				</div>
-				<div class="content">
+				<div className="content">
 					<ul className="list-group list-group-flush">
 						{todos.map((item, index) => (
 							<li className="list-group-item d-flex justify-content-between">
 								<span>{item}</span>
-								<svg class="garbage" onClick={() => 
+								<svg className="garbage" onClick={() => 
 									setTodos(
 										todos.filter(
 											(t, currentIndex) => 
